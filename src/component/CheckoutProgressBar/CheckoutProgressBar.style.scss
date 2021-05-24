@@ -1,0 +1,82 @@
+.CheckoutProgressBar {
+    $activeColorBackground: #A82222;
+    $inactiveColorBackground: #DBDBDB;
+
+    $activeColorCircleNumber: #fff;
+    $inactiveColorCircleNumber: #9C9C9C;
+    $activeColorCircleTitle: #000;
+    $inactiveColorCircleTitle: #ADADAD;
+
+    $circleSize: 40px;
+    $middleLineWidth: 30%;
+
+    background-color: var(--breadcrumbs-background);
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    width: 100%;
+
+
+    .CheckoutProgressBarLine {
+        $height: 5px;
+
+        height: $height;
+        border-radius: $height / 2;
+        background: $inactiveColorBackground;
+        width: $middleLineWidth;
+
+        &:first-child {
+            border-radius: 0 $height/2 $height/2 0;
+            width: 35%;
+        }
+
+        &:last-child {
+            width: 35%;
+            border-radius: $height/2 0 0 $height/2;
+        }
+
+        &--active {
+            background-color: $activeColorBackground;
+        }
+    }
+
+    .CheckoutProgressBarCircle {
+        font-weight: 600;
+        text-align: center;
+        position: relative;
+        margin: 10px;
+
+        &__circle {
+            color: $inactiveColorCircleNumber;
+            line-height: 42px;
+            background: #DBDBDB;
+            border-radius: 50%;
+            height: $circleSize;
+            width: $circleSize;
+            margin: auto;
+            font-size: large;
+        }
+
+        &__title {
+            color: $inactiveColorCircleTitle;
+            position: absolute;
+            padding-top: 10px;
+            font-weight: 700;
+            right: -40px;
+            width: 120px;
+            text-align: center;
+        }
+        
+        &--active {
+            .CheckoutProgressBarCircle__circle {
+                background-color: $activeColorBackground;
+                color: $activeColorCircleNumber;
+            }
+
+            .CheckoutProgressBarCircle__title {
+                color: $activeColorCircleTitle;
+            }
+        }
+    }
+}
