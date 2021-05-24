@@ -1,8 +1,9 @@
 /* eslint-disable import/no-duplicates */
 /* eslint-disable @scandipwa/scandipwa-guidelines/use-namespace */
 /* eslint-disable @scandipwa/scandipwa-guidelines/derived-class-names */
-import CheckoutProgressBar from 'Component/CheckoutProgressBar/CheckoutProgressBar.component';
 import ContentWrapper from 'Component/ContentWrapper';
+import ProgressBar from 'Component/ProgressBar/ProgressBar.component';
+import { BILLING_STEP, DETAILS_STEP, SHIPPING_STEP } from 'Route/Checkout/Checkout.config';
 import { Checkout as CheckoutSource } from 'SourceRoute/Checkout/Checkout.component';
 
 import 'SourceRoute/Checkout/Checkout.component';
@@ -15,10 +16,33 @@ export class CheckoutComponent extends CheckoutSource {
         return checkoutStep;
     }
 
+    renderProgressBarSteps() {
+        return [
+            {
+                id: 0,
+                title: 'Shipping',
+                step_id: SHIPPING_STEP
+            },
+            {
+                id: 1,
+                title: 'Review & Payments',
+                step_id: BILLING_STEP
+            },
+            {
+                id: 2,
+                title: 'Details',
+                step_id: DETAILS_STEP
+            }
+        ];
+    }
+
     render() {
         return (
             <main block="Checkout">
-                <CheckoutProgressBar checkoutStep={ this.renderCheckoutStep() } />
+                <ProgressBar
+                  steps={ this.renderProgressBarSteps() }
+                  checkoutStep={ this.renderCheckoutStep() }
+                />
                 <ContentWrapper
                   wrapperMix={ { block: 'Checkout', elem: 'Wrapper' } }
                   label={ __('Checkout page') }

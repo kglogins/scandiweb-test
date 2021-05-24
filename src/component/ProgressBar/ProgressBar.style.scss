@@ -1,0 +1,86 @@
+.ProgressBar {
+    $activeColorBackground: #A82222;
+    $inactiveColorBackground: #DBDBDB;
+
+    $activeColorCircleNumber: #fff;
+    $inactiveColorCircleNumber: #9C9C9C;
+    $activeColorCircleTitle: #000;
+    $inactiveColorCircleTitle: #ADADAD;
+
+    $circleSize: 40px;
+    $middleLineWidth: 30%;
+
+    background-color: var(--breadcrumbs-background);
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    width: 100%;
+
+
+    .ProgressBarLine {
+        $height: 5px;
+
+        height: $height;
+        border-radius: $height / 2;
+        background-color: $inactiveColorBackground;
+        width: $middleLineWidth;
+        background-position: right bottom;
+
+        &:first-child {
+            border-radius: 0 $height/2 $height/2 0;
+            width: 35%;
+        }
+
+        &:last-child {
+            width: 35%;
+            border-radius: $height/2 0 0 $height/2;
+        }
+
+        &--active {
+            background-color: $activeColorBackground;
+            background: linear-gradient(to right, $activeColorBackground 50%, $inactiveColorBackground 50%);
+            background-size: 200% 100%;
+            transition: all .8s ease-out;
+        }
+    }
+
+    .ProgressBarCircle {
+        font-weight: 600;
+        text-align: center;
+        position: relative;
+        margin: 10px;
+
+        &__circle {
+            color: $inactiveColorCircleNumber;
+            line-height: 42px;
+            background: #DBDBDB;
+            border-radius: 50%;
+            height: $circleSize;
+            width: $circleSize;
+            margin: auto;
+            font-size: large;
+        }
+
+        &__title {
+            color: $inactiveColorCircleTitle;
+            position: absolute;
+            padding-top: 10px;
+            font-weight: 700;
+            right: -40px;
+            width: 120px;
+            text-align: center;
+        }
+        
+        &--active {
+            .ProgressBarCircle__circle {
+                background-color: $activeColorBackground;
+                color: $activeColorCircleNumber;
+            }
+
+            .ProgressBarCircle__title {
+                color: $activeColorCircleTitle;
+            }
+        }
+    }
+}

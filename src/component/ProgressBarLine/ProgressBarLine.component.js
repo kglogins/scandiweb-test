@@ -2,8 +2,8 @@
 import PropTypes from 'prop-types';
 import { PureComponent } from 'react';
 
-/** @namespace ScandiwebTask/Src/Component/CheckoutProgressBarLine/Component/CheckoutProgressBarLine */
-export class CheckoutProgressBarLine extends PureComponent {
+/** @namespace ScandiwebTask/Src/Component/ProgressBarLine/Component/ProgressBarLine */
+export class ProgressBarLine extends PureComponent {
     static propTypes = {
         isActive: PropTypes.bool.isRequired
     };
@@ -16,10 +16,10 @@ export class CheckoutProgressBarLine extends PureComponent {
     render() {
         return (
             <div
-              block={ `CheckoutProgressBarLine ${this.renderIsActive() ? 'CheckoutProgressBarLine--active' : ''} ` }
+              block={ `ProgressBarLine ${this.renderIsActive() ? 'ProgressBarLine--active' : ''} ` }
             />
         );
     }
 }
 
-export default CheckoutProgressBarLine;
+export default ProgressBarLine;

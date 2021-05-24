@@ -2,8 +2,8 @@
 import PropTypes from 'prop-types';
 import { PureComponent } from 'react';
 
-/** @namespace ScandiwebTask/Src/Component/CheckoutProgressBarCircle/Component/CheckoutProgressBarCircle */
-export class CheckoutProgressBarCircle extends PureComponent {
+/** @namespace ScandiwebTask/Src/Component/ProgressBarCircle/Component/ProgressBarCircle */
+export class ProgressBarCircle extends PureComponent {
     static propTypes = {
         stepNumber: PropTypes.number.isRequired,
         title: PropTypes.string.isRequired,
@@ -29,13 +29,13 @@ export class CheckoutProgressBarCircle extends PureComponent {
     render() {
         return (
             <div
-              block={ `CheckoutProgressBarCircle ${this.renderIsActive() ? 'CheckoutProgressBarCircle--active' : ''} ` }
+              block={ `ProgressBarCircle ${this.renderIsActive() ? 'ProgressBarCircle--active' : ''} ` }
             >
-                <div block="CheckoutProgressBarCircle__circle">{ this.renderStepNumber() }</div>
-                <div block="CheckoutProgressBarCircle__title">{ this.renderStepTitle() }</div>
+                <div block="ProgressBarCircle__circle">{ this.renderStepNumber() }</div>
+                <div block="ProgressBarCircle__title">{ this.renderStepTitle() }</div>
             </div>
         );
     }
 }
 
-export default CheckoutProgressBarCircle;
+export default ProgressBarCircle;
