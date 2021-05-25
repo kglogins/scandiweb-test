@@ -10,7 +10,7 @@ import './ProgressBar.style.scss';
 /** @namespace ScandiwebTask/Src/Component/ProgressBar/Component/ProgressBar */
 export class ProgressBar extends PureComponent {
     static propTypes = {
-        checkoutStep: PropTypes.string.isRequired,
+        currentStep: PropTypes.string.isRequired,
         steps: PropTypes.arrayOf(PropTypes.shape({
             id: PropTypes.number.isRequired,
             title: PropTypes.string.isRequired,
@@ -19,19 +19,19 @@ export class ProgressBar extends PureComponent {
     };
 
     renderIsActive(step) {
-        const { checkoutStep } = this.props;
-        return checkoutStep === step;
+        const { currentStep } = this.props;
+        return currentStep === step;
     }
 
     renderIsActiveLine(step) {
-        const { checkoutStep } = this.props;
-        return step === checkoutStep || this.renderIsComplete(step);
+        const { currentStep } = this.props;
+        return step === currentStep || this.renderIsComplete(step);
     }
 
     renderIsComplete(step) {
-        const { checkoutStep, steps } = this.props;
+        const { currentStep, steps } = this.props;
 
-        if (steps.findIndex((x) => x.step_id === step) < steps.findIndex((x) => x.step_id === checkoutStep)) {
+        if (steps.findIndex((x) => x.step_id === step) < steps.findIndex((x) => x.step_id === currentStep)) {
             return true;
         }
 

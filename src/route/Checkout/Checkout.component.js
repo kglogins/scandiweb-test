@@ -41,7 +41,7 @@ export class CheckoutComponent extends CheckoutSource {
             <main block="Checkout">
                 <ProgressBar
                   steps={ this.renderProgressBarSteps() }
-                  checkoutStep={ this.renderCheckoutStep() }
+                  currentStep={ this.renderCheckoutStep() }
                 />
                 <ContentWrapper
                   wrapperMix={ { block: 'Checkout', elem: 'Wrapper' } }
